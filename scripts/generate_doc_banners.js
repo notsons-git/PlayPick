@@ -46,7 +46,7 @@ const banners = [
         <div class="bg-glow"></div>
         <div class="content">
           <div class="badge-row">
-            <span class="badge">0.1.0 Beta</span>
+            <span class="badge">0.1.1 Beta</span>
             <span class="platform">Windows x64 • Electron • SQLite</span>
           </div>
           <h1>Play<span>Pick</span></h1>

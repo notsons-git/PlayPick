@@ -29,27 +29,32 @@ if (!token) {
 
 const owner = 'notsons-git';
 const repo = 'PlayPick';
-const tag = 'v0.1.0-beta';
-const releaseTitle = 'PlayPick 0.1.0 Beta';
+const tag = 'v0.1.1-beta';
+const releaseTitle = 'PlayPick 0.1.1 Beta';
 
-const releaseBody = `## 🎮 PlayPick 0.1.0 Beta
+const releaseBody = `## 🎮 PlayPick 0.1.1 Beta
 
-Первая публичная бета-версия **PlayPick** — умного лаунчера и рулетки игр для Windows x64.
+Исправленный публичный релиз **PlayPick** — умного лаунчера и рулетки игр для Windows x64.
 
-### 🌟 Что умеет PlayPick:
-- **5 режимов рулетки**: Последовательная, Случайная, Открытие кейсов, Горизонтальное колесо, Вертикальное колесо.
-- **Интеллектуальные шансы**: регулируемый приоритет для избранных игр (до +500%).
-- **3 режима автозапуска**: Подтверждение кнопкой, 3-секундный таймер с отменой, Мгновенный запуск.
-- **Умная нормализация .exe и защита от дубликатов**: объединение статистики, истории и тегов.
-- **Многоуровневые фильтры**: фильтрация по жанрам, тегам («Любой» / «Все») и исключение недавних игр.
-- **Автономная локальная база данных**: быстрое и надёжное хранилище SQLite без обязательных аккаунтов.
+### 📝 Изменения в версии 0.1.1:
+- **Обновление лицензии**: Переход на собственную лицензию [PlayPick Free Distribution License](LICENSE). Разрешено бесплатное личное использование и свободное некоммерческое распространение программы; запрещена продажа копий, платное распространение и взимание платы за доступ к приложению без письменного согласия правообладателя.
+- **Синхронизация документации**: Приведены в полное соответствие с реальным кодом параметры длительности рулетки (по умолчанию 5 сек, ползунок 0–10 сек, ручной ввод до 60 сек), параметры таймера автозапуска (по умолчанию 5 сек, настройка 1–15 сек с кнопкой отмены), веса избранного (от -100% до +500%) и статусы поддерживаемых платформ.
+- **Стабильность упаковщика**: Исправлена относительная адресация ассетов в бандле для надёжного запуска установленной версии через локальный протокол.
+- **Единый фирменный стиль**: Оформление приложения и установщика Windows базируется на официальном минималистичном логотипе (монограмма «PP»).
+
+### 🌟 Основные возможности:
+- **5 режимов рулетки**: Последовательная, Случайная, Открытие кейсов, Горизонтальная рулетка, Вертикальная рулетка.
+- **Гибкая система весов**: тонкая настройка влияния избранного (от -100% для исключения до +500% бонуса).
+- **3 режима запуска**: Подтверждение вручную, Обратный отсчёт (с отменой), Мгновенный старт.
+- **Умное добавление**: Одиночный выбор .exe с автоопределением названия и иконки, пакетное сканирование папок, нормализация путей и автослияние дубликатов.
+- **Полная автономность**: Локальная база данных SQLite (%APPDATA%\\playpick\\playpick.db), отсутствие телеметрии и аналитики.
 
 ### 📥 Инструкция по установке:
-1. Скачайте прикреплённый ниже файл **\`PlayPick-Setup-0.1.0.exe\`**.
-2. Запустите файл установщика и следуйте подсказкам мастера Windows.
-3. Откройте приложение, добавьте свои игры через вкладку «Моя библиотека» или воспользуйтесь «Поиском игр».
+1. Скачайте прикреплённый ниже файл **\`PlayPick-Setup-0.1.1.exe\`**.
+2. Запустите установщик и следуйте шагам мастера Windows.
+3. Откройте PlayPick, наполните библиотеку через «Поиск игр» или добавьте отдельные игры вручную.
 
-> ⚠️ **Обратите внимание**: это первая Beta-версия. Если вы столкнулись с ошибкой или хотите предложить новую функцию — создайте [GitHub Issue](https://github.com/notsons-git/PlayPick/issues).
+> ℹ️ *Примечание:* Релиз версии 0.1.0 изначально публиковался под лицензией MIT. Настоящий релиз 0.1.1 и все последующие сборки распространяются на условиях PlayPick Free Distribution License.
 `;
 
 function request(options, data) {
@@ -138,14 +143,14 @@ async function main() {
       });
       console.log('Found existing release (ID: ' + release.id + ')');
     } catch {
-      console.log('Release for ' + tag + ' does not exist yet. Creating release...');
+      console.log('Release for ' + tag + ' does not exist yet. Creating official release...');
       const payload = JSON.stringify({
         tag_name: tag,
         target_commitish: 'main',
         name: releaseTitle,
         body: releaseBody,
         draft: false,
-        prerelease: true,
+        prerelease: false, // Display as release, not pre-release as requested
       });
 
       release = await request(
@@ -165,20 +170,20 @@ async function main() {
       console.log('✓ Created release "' + release.name + '" (ID: ' + release.id + ')');
     }
 
-    const installerPath = path.resolve(__dirname, '..', 'release', 'PlayPick Setup 0.1.0.exe');
+    const installerPath = path.resolve(__dirname, '..', 'release', 'PlayPick Setup 0.1.1.exe');
     if (!fs.existsSync(installerPath)) {
       throw new Error('Installer not found at ' + installerPath);
     }
 
     // Check if asset already exists in release
-    if (release.assets && release.assets.some(a => a.name === 'PlayPick-Setup-0.1.0.exe')) {
-      console.log('Asset PlayPick-Setup-0.1.0.exe is already uploaded.');
+    if (release.assets && release.assets.some(a => a.name === 'PlayPick-Setup-0.1.1.exe')) {
+      console.log('Asset PlayPick-Setup-0.1.1.exe is already uploaded.');
     } else {
-      await uploadAsset(release.upload_url, installerPath, 'PlayPick-Setup-0.1.0.exe');
+      await uploadAsset(release.upload_url, installerPath, 'PlayPick-Setup-0.1.1.exe');
     }
 
     console.log('\n======================================================');
-    console.log('🎉 Beta Release 0.1.0 successfully published to GitHub!');
+    console.log('🎉 Release 0.1.1 successfully published to GitHub!');
     console.log('Release URL: https://github.com/' + owner + '/' + repo + '/releases/tag/' + tag);
     console.log('======================================================\n');
   } catch (err) {

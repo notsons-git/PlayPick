@@ -52,7 +52,7 @@ function registerIpcHandlers() {
 
   ipcMain.handle('get-settings', () => getSettings());
   ipcMain.handle('update-settings', (_e, updates) => updateSettings(updates));
-  ipcMain.handle('get-app-version', () => '0.1.0');
+  ipcMain.handle('get-app-version', () => '0.1.1');
   ipcMain.handle('is-first-run', () => false);
   ipcMain.handle('set-first-run-done', () => {});
   ipcMain.handle('get-covers-dir', () => path.join(demoUserData, 'covers'));

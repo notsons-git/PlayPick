@@ -614,7 +614,7 @@ export default function SettingsPage() {
 
           <div className={styles.infoRow}>
             <span className={styles.infoKey}>Версия PlayPick</span>
-            <span className={styles.infoVal}>{appVersion ? `${appVersion} (Beta)` : '0.1.0 (Beta)'}</span>
+            <span className={styles.infoVal}>{appVersion ? `${appVersion} (Beta)` : '0.1.1 (Beta)'}</span>
           </div>
 
           <div className={styles.infoRow}>

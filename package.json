@@ -1,6 +1,6 @@
 {
   "name": "playpick",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PlayPick — Меньше выбирай. Больше играй.",
   "main": "dist-electron/electron/main.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "keywords": ["games", "launcher", "electron", "playpick"],
   "author": "PlayPick",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",
