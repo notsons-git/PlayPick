@@ -1,0 +1,317 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+}
+
+.card:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardSelected {
+  border-color: rgba(152, 203, 0, 0.4);
+}
+
+.cardDuplicate {
+  opacity: 0.72;
+  border-color: rgba(224, 85, 85, 0.35);
+  background: rgba(224, 85, 85, 0.03);
+}
+
+/* Cover */
+.coverWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 78px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text-muted);
+}
+
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  color: #ffffff;
+}
+
+.coverWrapper:hover .coverOverlay {
+  opacity: 1;
+}
+
+/* Info */
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleInput {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  margin-left: -6px;
+  outline: none;
+  font-family: inherit;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.titleInput:hover {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: var(--color-border);
+}
+
+.titleInput:focus {
+  background: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+.duplicateBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  color: #ff7875;
+  background: rgba(255, 77, 79, 0.12);
+  border: 1px solid rgba(255, 77, 79, 0.35);
+  white-space: nowrap;
+}
+
+/* Pills and metadata rows */
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 2px;
+}
+
+.pillGenre {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(152, 203, 0, 0.35);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.pillTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.pillDeleteBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+.pillDeleteBtn:hover {
+  opacity: 1;
+}
+
+.addPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  background: transparent;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.addPillBtn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+  background: rgba(152, 203, 0, 0.06);
+}
+
+/* Quick adder input inline */
+.quickAddBox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.quickInput {
+  height: 22px;
+  width: 120px;
+  font-size: 11px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  padding: 0 6px;
+  outline: none;
+  font-family: inherit;
+}
+
+.quickDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+  margin-top: 4px;
+  min-width: 140px;
+  max-height: 140px;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  padding: 3px 0;
+}
+
+.quickDropdownItem {
+  padding: 5px 8px;
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.quickDropdownItem:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+/* Path */
+.pathRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.pathText {
+  font-size: 11px;
+  font-family: Consolas, 'Courier New', monospace;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+}
+
+/* Right controls */
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+  padding-left: 6px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.removeCardBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.removeCardBtn:hover {
+  color: var(--color-error);
+  background: rgba(224, 85, 85, 0.1);
+}

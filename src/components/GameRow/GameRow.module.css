@@ -1,0 +1,289 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  cursor: default;
+  min-height: 60px;
+}
+
+.row:hover {
+  background: var(--color-surface-hover);
+}
+
+/* Constant, uniform favorite outline across all pages and lists */
+.row.isFavoriteGame {
+  border-color: rgba(255, 77, 79, 0.32);
+}
+
+.row.isFavoriteGame:hover {
+  border-color: rgba(255, 77, 79, 0.5);
+}
+
+.row.highlighted {
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+  box-shadow: 0 0 16px rgba(152, 203, 0, 0.18);
+}
+
+/* Roulette Animation Highlight for favorite games: distinct red border + inner inset glow */
+.row.favoriteHighlight {
+  border-color: #ff4d4f !important;
+  background: rgba(255, 77, 79, 0.12) !important;
+  box-shadow: inset 0 0 14px rgba(255, 77, 79, 0.45), 0 0 10px rgba(255, 77, 79, 0.25) !important;
+}
+
+.row.excluded {
+  opacity: 0.5;
+}
+
+.row.excluded .coverImg,
+.row.excluded .coverPlaceholder {
+  filter: grayscale(1);
+}
+
+.row.filterMismatch {
+  opacity: 0.65;
+}
+
+.row.filterMismatch .coverImg,
+.row.filterMismatch .coverPlaceholder {
+  filter: grayscale(1);
+}
+
+.row.compact {
+  min-height: 44px;
+  padding: 5px 10px;
+  gap: 10px;
+}
+
+/* Interactive Cover */
+.cover {
+  position: relative;
+  flex-shrink: 0;
+  width: 50px;
+  height: 70px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  border: 1.5px solid transparent;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cover:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(152, 203, 0, 0.45);
+}
+
+/* Constant favorite border on cover */
+.cover.coverFavorite {
+  border-color: #ff4d4f;
+}
+
+.cover.coverFavorite:focus-visible {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.45);
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter var(--transition-fast);
+}
+
+.coverPlaceholder {
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: filter var(--transition-fast);
+}
+
+/* Hover overlay: dims image and shows centered heart */
+.coverHoverOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+}
+
+.cover:hover .coverHoverOverlay,
+.cover:focus-visible .coverHoverOverlay {
+  opacity: 1;
+}
+
+.hoverHeart {
+  transition: transform var(--transition-fast);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.cover:hover .hoverHeart {
+  transform: scale(1.15);
+}
+
+/* Heart button next to game title */
+.titleFavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.titleFavBtn:hover {
+  background: var(--color-surface-hover);
+  color: #ff4d4f;
+  transform: scale(1.15);
+}
+
+.titleFavBtn.titleFavActive {
+  color: #ff4d4f;
+}
+
+.titleFavBtn.titleFavActive:hover {
+  transform: scale(1.15);
+}
+
+.titleFavBtn:focus-visible {
+  outline: none;
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.35);
+}
+
+.titleFavIcon {
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+/* Info */
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.statusBadgeExcluded {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+
+.statusBadgeMismatch {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 600;
+  border: 1px solid rgba(224, 85, 85, 0.3);
+  color: #d17b7b;
+  background: rgba(224, 85, 85, 0.08);
+  flex-shrink: 0;
+}
+
+.row.compact .title {
+  font-size: 12px;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+/* Source badge */
+.sourceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.editBtn:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+}

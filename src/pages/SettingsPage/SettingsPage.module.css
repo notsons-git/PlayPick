@@ -1,0 +1,279 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 32px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.alertSuccess {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(152, 203, 0, 0.1);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.sectionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 720px;
+}
+
+.section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sectionTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionDesc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: -6px 0 0 0;
+  line-height: 1.5;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.fieldCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fieldLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.fieldDesc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.valueHighlight {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.rangeInput {
+  width: 100%;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.sliderWithInput {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.syncInput {
+  width: 105px;
+  height: 34px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  font-family: inherit;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast);
+}
+
+.syncInput:focus {
+  border-color: var(--color-accent);
+}
+
+.inputError {
+  border-color: var(--color-error) !important;
+}
+
+.validationMsg {
+  font-size: 11.5px;
+  color: var(--color-error);
+  margin-top: -2px;
+}
+
+.manualNote {
+  font-size: 11px;
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.inputWithUnit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.numberInput {
+  width: 90px;
+  height: 36px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  padding: 0 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+.numberInput:focus {
+  border-color: var(--color-accent);
+}
+
+.unitText {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.textInput {
+  height: 36px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  padding: 0 12px;
+  font-size: 13px;
+  outline: none;
+}
+
+.textInput:focus {
+  border-color: var(--color-accent);
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.infoKey {
+  color: var(--color-text-secondary);
+}
+
+.infoVal {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.animSelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.animBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.animBtn:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(152, 203, 0, 0.4);
+}
+
+.animBtnActive {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent);
+}
+
+.animTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.animBtnActive .animTitle {
+  color: var(--color-accent);
+}
+
+.animDesc {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}

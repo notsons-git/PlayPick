@@ -1,0 +1,68 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad4" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stop-color="#242820"/>
+            <stop offset="70%" stop-color="#141613"/>
+            <stop offset="100%" stop-color="#0a0c09"/>
+          </radialGradient>
+          <linearGradient id="limeGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C5FF00"/>
+            <stop offset="100%" stop-color="#98CB00"/>
+          </linearGradient>
+          <filter id="neonGlow4" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="9" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Squircle Base -->
+        <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad4)" stroke="#32372d" stroke-width="4"/>
+        <rect x="24" y="24" width="464" height="464" rx="100" fill="none" stroke="#98CB00" stroke-width="1.5" stroke-opacity="0.2"/>
+
+        <!-- Ambient Center Glow -->
+        <circle cx="256" cy="256" r="140" fill="#98CB00" opacity="0.12" filter="url(#neonGlow4)"/>
+
+        <!-- Outer Radar Ring with Degree Ticks -->
+        <circle cx="256" cy="256" r="185" fill="none" stroke="#252b20" stroke-width="6"/>
+        <circle cx="256" cy="256" r="185" fill="none" stroke="url(#limeGrad4)" stroke-width="4" stroke-dasharray="4 20" opacity="0.6"/>
+
+        <!-- Middle Roulette Chamber Track -->
+        <circle cx="256" cy="256" r="150" fill="none" stroke="#1d2219" stroke-width="26"/>
+        
+        <!-- Roulette Chamber Slots (8 orbital nodes) -->
+        <g stroke="#323a2a" stroke-width="2">
+          <circle cx="256" cy="106" r="10" fill="#141613"/>
+          <circle cx="362" cy="150" r="10" fill="#141613"/>
+          <circle cx="406" cy="256" r="10" fill="#141613"/>
+          <circle cx="362" cy="362" r="10" fill="#141613"/>
+          <circle cx="256" cy="406" r="10" fill="#141613"/>
+          <circle cx="150" cy="362" r="10" fill="#141613"/>
+          <circle cx="106" cy="256" r="10" fill="#141613"/>
+          <circle cx="150" cy="150" r="10" fill="#141613"/>
+        </g>
+
+        <!-- The "Picked" Winner Slot in Roulette Ring -->
+        <circle cx="256" cy="106" r="11" fill="url(#limeGrad4)" filter="url(#neonGlow4)"/>
+        <circle cx="256" cy="106" r="4" fill="#FFFFFF"/>
+
+        <!-- Top Precision Needle Selector (The "Pick") -->
+        <polygon points="256,52 240,88 272,88" fill="url(#limeGrad4)" filter="url(#neonGlow4)"/>
+        <line x1="256" y1="42" x2="256" y2="88" stroke="#FFFFFF" stroke-width="2"/>
+
+        <!-- Reticle Crosshairs with Gaps -->
+        <line x1="256" y1="135" x2="256" y2="185" stroke="url(#limeGrad4)" stroke-width="3"/>
+        <line x1="256" y1="327" x2="256" y2="377" stroke="url(#limeGrad4)" stroke-width="3"/>
+        <line x1="135" y1="256" x2="185" y2="256" stroke="url(#limeGrad4)" stroke-width="3"/>
+        <line x1="327" y1="256" x2="377" y2="256" stroke="url(#limeGrad4)" stroke-width="3"/>
+
+        <!-- Center Hub Inner Plate -->
+        <circle cx="256" cy="256" r="76" fill="#1e221b" stroke="#363e2e" stroke-width="5"/>
+        <circle cx="256" cy="256" r="76" fill="none" stroke="url(#limeGrad4)" stroke-width="2" opacity="0.8"/>
+
+        <!-- Big Center Play Icon (The "Play") -->
+        <polygon points="238,212 294,256 238,300" fill="url(#limeGrad4)" filter="url(#neonGlow4)"/>
+        <polygon points="238,212 294,256 238,300" fill="#FFFFFF" opacity="0.4"/>
+      </svg>

@@ -1,0 +1,83 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad3" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stop-color="#242920"/>
+            <stop offset="70%" stop-color="#141613"/>
+            <stop offset="100%" stop-color="#0a0c09"/>
+          </radialGradient>
+          <linearGradient id="limeGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4FF33"/>
+            <stop offset="50%" stop-color="#98CB00"/>
+            <stop offset="100%" stop-color="#739900"/>
+          </linearGradient>
+          <linearGradient id="metalGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#363d30"/>
+            <stop offset="50%" stop-color="#23271f"/>
+            <stop offset="100%" stop-color="#171914"/>
+          </linearGradient>
+          <filter id="neonGlow3" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="10" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="dropShadow3" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.8"/>
+          </filter>
+        </defs>
+
+        <!-- Squircle Base -->
+        <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad3)" stroke="#32372d" stroke-width="4"/>
+        <rect x="24" y="24" width="464" height="464" rx="100" fill="none" stroke="#98CB00" stroke-width="1.5" stroke-opacity="0.2"/>
+
+        <!-- Tech Accent Grid / Angle Lines in Background -->
+        <line x1="80" y1="80" x2="432" y2="432" stroke="#23281e" stroke-width="2" stroke-dasharray="8 12"/>
+        <circle cx="256" cy="256" r="160" fill="none" stroke="#22271d" stroke-width="2"/>
+        <circle cx="256" cy="256" r="160" fill="none" stroke="url(#limeGrad3)" stroke-width="2" stroke-dasharray="6 30" opacity="0.4"/>
+
+        <!-- Background Glow -->
+        <circle cx="270" cy="256" r="120" fill="#98CB00" opacity="0.16" filter="url(#neonGlow3)"/>
+
+        <!-- Monogram Body with Shadow -->
+        <g filter="url(#dropShadow3)">
+          <!-- Primary First 'P' (Play) - Neon Lime Ribbon Forming Play Triangle -->
+          <path d="
+            M 148 120
+            L 280 120
+            C 340 120 380 160 380 215
+            C 380 270 335 310 280 310
+            L 216 310
+            L 216 392
+            L 148 392
+            Z"
+            fill="url(#metalGrad3)" stroke="#434c3c" stroke-width="6"/>
+
+          <!-- Overlapping Glowing Play Chevron / Pick Triangle -->
+          <path d="
+            M 216 120
+            L 320 120
+            C 380 120 420 165 420 220
+            C 420 275 375 320 315 320
+            L 260 320
+            L 340 220
+            L 260 180
+            Z"
+            fill="url(#limeGrad3)" filter="url(#neonGlow3)"/>
+
+          <!-- Dynamic Cutout & Inner Counter forming the 'P' loop / Play Arrow -->
+          <polygon points="216,180 300,220 216,260" fill="#141613" stroke="#32372d" stroke-width="3"/>
+
+          <!-- Second Accent 'P' (Pick) Stem Notch -->
+          <rect x="148" y="120" width="68" height="272" rx="12" fill="url(#limeGrad3)" filter="url(#neonGlow3)"/>
+          <rect x="156" y="128" width="52" height="256" rx="8" fill="#1a1e16"/>
+          
+          <!-- Crosshair Pick Pip inside Stem -->
+          <circle cx="182" cy="190" r="8" fill="url(#limeGrad3)"/>
+          <line x1="182" y1="165" x2="182" y2="215" stroke="url(#limeGrad3)" stroke-width="2.5"/>
+          <line x1="157" y1="190" x2="207" y2="190" stroke="url(#limeGrad3)" stroke-width="2.5"/>
+
+          <!-- Glowing Sharp Play Arrow in Center -->
+          <polygon points="240,195 285,220 240,245" fill="#FFFFFF" filter="url(#neonGlow3)"/>
+        </g>
+      </svg>

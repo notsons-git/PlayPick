@@ -1,0 +1,80 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad2" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stop-color="#21251e"/>
+            <stop offset="70%" stop-color="#141613"/>
+            <stop offset="100%" stop-color="#0b0d0a"/>
+          </radialGradient>
+          <linearGradient id="limeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C5FF00"/>
+            <stop offset="100%" stop-color="#98CB00"/>
+          </linearGradient>
+          <linearGradient id="topFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2d3328"/>
+            <stop offset="100%" stop-color="#1f231b"/>
+          </linearGradient>
+          <linearGradient id="leftFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1b1e17"/>
+            <stop offset="100%" stop-color="#131510"/>
+          </linearGradient>
+          <linearGradient id="rightFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#24291f"/>
+            <stop offset="100%" stop-color="#171a14"/>
+          </linearGradient>
+          <filter id="neonGlow2" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="9" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Squircle Base -->
+        <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad2)" stroke="#32372d" stroke-width="4"/>
+        <rect x="24" y="24" width="464" height="464" rx="100" fill="none" stroke="#98CB00" stroke-width="1.5" stroke-opacity="0.15"/>
+
+        <!-- Orbiting Roulette Ring in Perspective -->
+        <ellipse cx="256" cy="270" rx="195" ry="85" fill="none" stroke="#252b20" stroke-width="12" transform="rotate(-15 256 270)"/>
+        <ellipse cx="256" cy="270" rx="195" ry="85" fill="none" stroke="url(#limeGrad2)" stroke-width="5" stroke-dasharray="14 24" opacity="0.7" transform="rotate(-15 256 270)"/>
+        
+        <!-- Glowing Roulette Sector Segment -->
+        <path d="M 120 200 A 195 85 0 0 1 290 190" fill="none" stroke="url(#limeGrad2)" stroke-width="12" stroke-linecap="round" transform="rotate(-15 256 270)" filter="url(#neonGlow2)"/>
+        <circle cx="95" cy="235" r="7" fill="#C5FF00" filter="url(#neonGlow2)"/>
+
+        <!-- Isometric Die Center Glow -->
+        <circle cx="256" cy="260" r="90" fill="#98CB00" opacity="0.15" filter="url(#neonGlow2)"/>
+
+        <!-- Isometric 3D Cube / Dice -->
+        <!-- Center point: (256, 260). Radius to vertices: ~120px -->
+        <!-- Top Face -->
+        <polygon points="256,140 360,200 256,260 152,200" fill="url(#topFaceGrad)" stroke="#3f4738" stroke-width="4"/>
+        
+        <!-- Left Face -->
+        <polygon points="152,200 256,260 256,380 152,320" fill="url(#leftFaceGrad)" stroke="#3f4738" stroke-width="4"/>
+
+        <!-- Right Face -->
+        <polygon points="256,260 360,200 360,320 256,380" fill="url(#rightFaceGrad)" stroke="#3f4738" stroke-width="4"/>
+
+        <!-- Cube Neon Seams -->
+        <line x1="256" y1="140" x2="256" y2="260" stroke="url(#limeGrad2)" stroke-width="3" stroke-opacity="0.9"/>
+        <line x1="256" y1="260" x2="360" y2="200" stroke="url(#limeGrad2)" stroke-width="3" stroke-opacity="0.9"/>
+        <line x1="256" y1="260" x2="152" y2="200" stroke="url(#limeGrad2)" stroke-width="3" stroke-opacity="0.9"/>
+        <line x1="256" y1="260" x2="256" y2="380" stroke="url(#limeGrad2)" stroke-width="4" filter="url(#neonGlow2)"/>
+
+        <!-- Top Face Element: Reticle / Crosshair Pip -->
+        <ellipse cx="256" cy="200" rx="36" ry="18" fill="none" stroke="url(#limeGrad2)" stroke-width="3" opacity="0.8"/>
+        <circle cx="256" cy="200" r="5" fill="#C5FF00" filter="url(#neonGlow2)"/>
+
+        <!-- Left Face Element: D-Pad in isometric perspective -->
+        <g transform="translate(204, 290) skewY(30) scale(0.9, 1)">
+          <rect x="-5" y="-18" width="10" height="36" rx="2" fill="#293023" stroke="#98CB00" stroke-width="1.5"/>
+          <rect x="-18" y="-5" width="36" height="10" rx="2" fill="#293023" stroke="#98CB00" stroke-width="1.5"/>
+        </g>
+
+        <!-- Right Face Element: Large glowing PLAY triangle in isometric perspective -->
+        <g transform="translate(308, 290) skewY(-30) scale(0.9, 1)">
+          <polygon points="-12,-20 18,0 -12,20" fill="url(#limeGrad2)" filter="url(#neonGlow2)"/>
+          <polygon points="-12,-20 18,0 -12,20" fill="#FFFFFF" opacity="0.4"/>
+        </g>
+      </svg>

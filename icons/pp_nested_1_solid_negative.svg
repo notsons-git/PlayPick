@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGradP1" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stop-color="#20241d"/>
+            <stop offset="100%" stop-color="#121411"/>
+          </radialGradient>
+          <linearGradient id="limeGradP1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#AEFF00"/>
+            <stop offset="100%" stop-color="#90C200"/>
+          </linearGradient>
+          <filter id="subtleShadowP1" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Squircle Background -->
+        <rect x="20" y="20" width="472" height="472" rx="108" fill="url(#bgGradP1)" stroke="#2D3227" stroke-width="4"/>
+
+        <!-- Outer Large 'P' (Solid Lime with Negative Cutouts) -->
+        <g filter="url(#subtleShadowP1)">
+          <!-- Outer P Shape: Left stem from x=124 to x=194, Bowl extends to x=388, y from 104 to 408 -->
+          <path d="
+            M 124 104
+            L 286 104
+            C 346 104 388 142 388 206
+            C 388 270 346 308 286 308
+            L 194 308
+            L 194 408
+            L 124 408
+            Z
+            
+            M 194 154
+            L 272 154
+            C 304 154 326 174 326 206
+            C 326 238 304 258 272 258
+            L 194 258
+            Z
+          "
+          fill="url(#limeGradP1)"
+          fill-rule="evenodd"
+          />
+
+          <!-- Inner 'P' nested in the counter: Stem and Play Loop -->
+          <!-- Inner P sits inside the counter (x=194 to 326, y=154 to 258) and extends down slightly -->
+          <!-- Inner stem -->
+          <rect x="214" y="174" width="22" height="64" rx="4" fill="#AEFF00"/>
+          
+          <!-- Inner P Loop / Play Triangle pointing right -->
+          <path d="
+            M 236 174
+            L 268 174
+            C 288 174 298 186 298 198
+            C 298 210 288 222 268 222
+            L 236 222
+            Z"
+            fill="#AEFF00"
+          />
+
+          <!-- Cutout inside the inner P creating the Play triangle -->
+          <polygon points="244,184 274,198 244,212" fill="#121411"/>
+        </g>
+      </svg>

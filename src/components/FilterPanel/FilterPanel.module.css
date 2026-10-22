@@ -1,0 +1,309 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.scrollBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.selectedCount {
+  font-size: 11px;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.searchToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.searchToggleBtn:hover,
+.searchToggleBtn.activeSearchBtn {
+  color: var(--color-accent);
+  background: var(--color-surface-hover);
+  border-color: var(--color-border);
+}
+
+.searchRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: searchAppear 150ms ease;
+}
+
+@keyframes searchAppear {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 8px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 28px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 12px;
+  padding: 0 24px 0 26px;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.searchInput:focus {
+  border-color: var(--color-accent);
+}
+
+.clearSearchBtn {
+  position: absolute;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.clearSearchBtn:hover {
+  color: var(--color-text);
+  background: var(--color-surface-hover);
+}
+
+.chipsScroll {
+  /* No artificial max-height cap: chips occupy available space smoothly */
+  overflow-y: visible;
+  padding-right: 4px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.noResultsHint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.tagModeBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tagModeRow {
+  display: flex;
+  gap: 4px;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  border: 1px solid var(--color-border);
+}
+
+.tagModeBtn {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 11.5px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  text-align: center;
+}
+
+.tagModeBtn:hover {
+  color: var(--color-text);
+}
+
+.tagModeActive {
+  background: var(--color-surface-hover);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.tagModeCaption {
+  font-size: 11px;
+  color: var(--color-accent);
+  opacity: 0.9;
+  line-height: 1.35;
+}
+
+.tagModeNotice {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  line-height: 1.35;
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-border);
+}
+
+/* Pinned Bottom Parameters Section directly above 80px footer */
+.paramsSection {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Checkboxes */
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  user-select: none;
+}
+
+.checkRow input[type="checkbox"] {
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.checkLabel {
+  font-size: 13px;
+}
+
+.recentRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.daysInput {
+  width: 50px;
+  padding: 2px 6px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 12px;
+  font-family: inherit;
+  text-align: center;
+}
+
+.daysInput:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.daysLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Stable Footer - strictly 80px high, perfectly aligning with bottomBar */
+.footer {
+  flex-shrink: 0;
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.count {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: fit-content;
+}
+
+.resetBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--color-text);
+}

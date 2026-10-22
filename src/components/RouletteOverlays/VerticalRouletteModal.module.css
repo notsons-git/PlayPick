@@ -1,0 +1,205 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(13, 15, 12, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.skipBtn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.skipBtn:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.rouletteBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 480px;
+  max-width: 90vw;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+
+.headerIcon {
+  color: var(--color-accent);
+}
+
+.viewport {
+  position: relative;
+  width: 480px;
+  max-width: 90vw;
+  height: 420px;
+  background: #171915;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+}
+
+/* Indicators */
+.indicatorLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--color-accent);
+  z-index: 5;
+  filter: drop-shadow(0 0 6px rgba(152, 203, 0, 0.8));
+}
+
+.indicatorRight {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 14px solid var(--color-accent);
+  z-index: 5;
+  filter: drop-shadow(0 0 6px rgba(152, 203, 0, 0.8));
+}
+
+.centerAimGlow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px;
+  border-top: 2px solid rgba(152, 203, 0, 0.5);
+  border-bottom: 2px solid rgba(152, 203, 0, 0.5);
+  background: rgba(152, 203, 0, 0.04);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Cards Vertical Track */
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px;
+  will-change: transform;
+}
+
+.card {
+  height: 76px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.isFavoriteCard {
+  border-color: rgba(255, 77, 79, 0.45);
+  box-shadow: inset 0 0 10px rgba(255, 77, 79, 0.25);
+}
+
+.isFavoriteCard.winnerHighlight {
+  border-color: #ff4d4f !important;
+  box-shadow: inset 0 0 16px rgba(255, 77, 79, 0.45), 0 0 20px rgba(255, 77, 79, 0.35) !important;
+  transform: scale(1.02);
+}
+
+.winnerHighlight {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 24px rgba(152, 203, 0, 0.6) !important;
+  transform: scale(1.02);
+}
+
+.cardCover {
+  width: 44px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #141613;
+  flex-shrink: 0;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardPlatform {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
